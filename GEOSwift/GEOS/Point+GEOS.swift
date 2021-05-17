@@ -21,7 +21,14 @@ extension Point: GEOSObjectInitializable {
             GEOSGeomGetY_r(geosObject.context.handle, geosObject.pointer, &y) == 1 else {
                 throw GEOSError.libraryError(errorMessages: geosObject.context.errors)
         }
-        self.init(x: x, y: y)
+
+        var z: Double?
+        var zPointer: Double = 0
+        if GEOSGeomGetZ_r(geosObject.context.handle, geosObject.pointer, &zPointer) == 1, !zPointer.isNaN {
+            z = zPointer
+        }
+
+        self.init(x: x, y: y, z: z)
     }
 }
 

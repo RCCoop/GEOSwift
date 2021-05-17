@@ -10,6 +10,8 @@ extension Point {
     static let testValue5 = Point(x: 5, y: 6)
 
     static let testValue7 = Point(x: 7, y: 8)
+
+    static let testValue9 = Point(x: 9, y: 10, z: 11)
 }
 
 @available(iOS 11.0, macOS 10.13, tvOS 11.0, *)

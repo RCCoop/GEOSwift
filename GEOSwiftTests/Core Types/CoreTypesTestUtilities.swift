@@ -3,7 +3,7 @@ import GEOSwift
 func makePoints(withCount count: UInt) -> [Point] {
     (0..<count)
         .map(Double.init)
-        .map { Point(x: $0, y: $0) }
+        .map { Point(x: $0, y: $0, z: $0) }
 }
 
 func makeLineStrings(withCount count: UInt) -> [LineString] {
@@ -42,7 +42,7 @@ func makeGeometries(withTypes types: [GeometryType]) -> [Geometry] {
     types.enumerated().map { (idx, type) in
         switch type {
         case .point:
-            return .point(Point(x: Double(idx), y: Double(idx)))
+            return .point(Point(x: Double(idx), y: Double(idx), z: Double(idx)))
         case .multiPoint:
             return .multiPoint(MultiPoint(points: makePoints(withCount: UInt(idx))))
         case .lineString:
@@ -67,7 +67,7 @@ func makeGeometries(withTypes types: [GeometryType]) -> [Geometry] {
 
 func makeFeatures(withCount count: UInt) -> [Feature] {
     (0..<count).map { (i) in
-        let point = Point(x: Double(i), y: Double(i))
+        let point = Point(x: Double(i), y: Double(i), z: Double(i))
         return Feature(geometry: point, properties: nil, id: .number(Double(i)))
     }
 }

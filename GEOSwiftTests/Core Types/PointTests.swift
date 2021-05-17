@@ -8,4 +8,12 @@ final class PointTests: XCTestCase {
         XCTAssertEqual(point.x, 1)
         XCTAssertEqual(point.y, 2)
     }
+
+    func testInitWithLonLatAlt() {
+        let point = Point(x: 1, y: 2, z: 3)
+
+        XCTAssertEqual(point.x, 1)
+        XCTAssertEqual(point.y, 2)
+        XCTAssertEqual(point.z, 3)
+    }
 }
