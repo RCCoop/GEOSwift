@@ -32,7 +32,7 @@ func makePoints(from geometry: GEOSObject) throws -> [Point] {
         }
 
         var zPointer: Double = 0
-        if GEOSCoordSeq_getY_r(geometry.context.handle, sequence, index, &zPointer) != 0, !zPointer.isNaN {
+        if GEOSCoordSeq_getZ_r(geometry.context.handle, sequence, index, &zPointer) != 0, !zPointer.isNaN {
             point.z = zPointer
         }
 
